@@ -30,6 +30,7 @@ require_once('../../../include/lehrform.class.php');
 require_once('../../../include/sprache.class.php');
 require_once('../../../include/studienplan.class.php');
 require_once('../../../include/lehreinheit.class.php');
+require_once('../../../include/lehreinheitmitarbeiter.class.php');
 require_once('../../lvinfo/include/lvinfo.class.php');
 
 $uid = get_uid();
@@ -202,6 +203,18 @@ foreach($studiengang->result as $row_stg)
 					}
 				}
 			}
+
+			$lema = new lehreinheitmitarbeiter();
+
+			$lema->getMitarbeiterLV($row_lv->lehrveranstaltung_id, $row_lv->studiensemester_kurzbz);
+
+			$namen = [];
+			foreach ($lema->result as $row)
+			{
+				$namen[] = trim($row->titelpre . ' ' . $row->vorname . ' ' . $row->nachname . ' ' . $row->titelpost);
+			}
+			$lektoren = implode(', ', $namen);
+
 			$data[$i]['lehrveranstaltung']=array(
 				'lehrveranstaltung_id'=>$row_lv->lehrveranstaltung_id,
 				'kurzbz'=>$row_lv->kurzbz,
@@ -214,6 +227,7 @@ foreach($studiengang->result as $row_stg)
 				'semester'=>$row_lv->semester,
 				'sprache'=>$row_lv->sprache,
 				'studienplan'=>'',
+				'lektoren' => $lektoren
 			);
 
 			$lvinfo_found=false;
