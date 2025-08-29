@@ -141,6 +141,7 @@ foreach($lehrform->lehrform as $row)
 
 $studiengang = new studiengang();
 $studiengang->getAll('typ');
+$stg_arr = array();
 
 // Alle Studiengänge holen
 foreach($studiengang->result as $row_stg)
