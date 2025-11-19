@@ -46,9 +46,9 @@ if(!$rechte->isBerechtigt('assistenz'))
     <head>
         <meta charset="UTF-8">
 	<link rel="stylesheet" href="../../../skin/vilesci.css" type="text/css">
-	<script type="text/javascript" src="../../../include/js/datecheck.js"></script>
-	<script type="text/javascript" src="../../../include/js/jquery1.9.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../../../skin/jquery-ui-1.9.2.custom.min.css"/>
+	<script type="text/javascript" src="../../../vendor/components/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../vendor/components/jqueryui/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../vendor/components/jqueryui/themes/base/jquery-ui.css"/>
 	<script type="text/javascript">
 	    var year = (new Date).getFullYear();
 	    var datum = year+"-11-15";
@@ -121,6 +121,11 @@ if(!$rechte->isBerechtigt('assistenz'))
             $person->getPersonFromBenutzer($uid);
 		    $student->load($uid);
 		    $studiengang->load($student->studiengang_kz);
+
+			// Student Ueberspringen wenn der Studiengang nicht melderelevant ist
+			if($studiengang->melderelevant===false)
+				continue;
+
 		    $adresse->load_pers($student->person_id);
 		    $heimatadresse;
 
