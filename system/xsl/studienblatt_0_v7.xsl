@@ -1062,7 +1062,7 @@
 					<table:table-cell table:style-name="Tabelle4.A1" office:value-type="string">
 						<text:p text:style-name="P3"/>
 						<text:p text:style-name="P5">
-							<text:span text:style-name="T2">Für den Rektor/die Rektorin: Vondrak</text:span>
+							<text:span text:style-name="T2"><!--Für den Rektor/die Rektorin: Vondrak--></text:span>
 						</text:p>
 					</table:table-cell>
 				</table:table-row>
