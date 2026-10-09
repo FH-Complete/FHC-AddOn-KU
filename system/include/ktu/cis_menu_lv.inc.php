@@ -47,7 +47,7 @@ function checkZeilenUmbruch()
 	if(!is_dir($dir_name))
 	{
 		exec('mkdir -m 755 '.escapeshellarg($dir_name));
-		exec('sudo chown www-data:teacher '.escapeshellarg($dir_name));
+		//exec('sudo chown www-data:teacher '.escapeshellarg($dir_name));
 	}
 	$angemeldet = true;
 	if(defined('CIS_LEHRVERANSTALTUNG_WENNANGEMELDET_DETAILS_ANZEIGEN') && CIS_LEHRVERANSTALTUNG_WENNANGEMELDET_DETAILS_ANZEIGEN && !$is_lector)
@@ -573,22 +573,22 @@ function ensureDirectoryExists($DOC_ROOT, $stg, $semester, $short_short_name, $t
 		if(!@is_dir(DOC_ROOT.'/documents/'.mb_strtolower($stg)))
 		{
 			exec('mkdir -m 755 '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg)));
-			exec('sudo chown www-data:teacher '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg)));
+			//exec('sudo chown www-data:teacher '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg)));
 		}
 		if(!@is_dir(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester))
 		{
 			exec('mkdir -m 755 '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester));
-			exec('sudo chown www-data:teacher '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester));
+			//exec('sudo chown www-data:teacher '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester));
 		}
 		if(!@is_dir(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name)))
 		{
 			exec('mkdir -m 755 '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name)));
-			exec('sudo chown www-data:teacher '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name)));
+			//exec('sudo chown www-data:teacher '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name)));
 		}
 		if(!@is_dir(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name).'/'.$type))
 		{
 			exec('mkdir -m 775 '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name).'/'.$type));
-			exec('sudo chown www-data:'.$role.' '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name).'/'.$type));
+			//exec('sudo chown www-data:'.$role.' '.escapeshellarg(DOC_ROOT.'/documents/'.mb_strtolower($stg).'/'.$semester.'/'.mb_strtolower($short_short_name).'/'.$type));
 		}
 	}
 }
